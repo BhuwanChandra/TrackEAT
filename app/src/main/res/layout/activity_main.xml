@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="171dp"
         android:layout_marginEnd="182dp"
-        android:layout_marginBottom="380dp"
-        android:text="V2"
+        android:layout_marginBottom="376dp"
+        android:text="EATit or Not"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton

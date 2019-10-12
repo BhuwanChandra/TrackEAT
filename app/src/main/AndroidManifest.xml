@@ -5,6 +5,9 @@
 
     <dist:module dist:instant="true" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application
         android:allowBackup="true"
@@ -14,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginIntent" />
+        <activity android:name=".BarcodeActivity" />
         <activity android:name=".MainPage" />
         <activity android:name=".MainActivity">
             <intent-filter>

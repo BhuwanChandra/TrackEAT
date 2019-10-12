@@ -75,9 +75,7 @@ public class LoginIntent extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
-                // Log.w(TAG, "Google sign in failed", e);
-                // ...
+                e.printStackTrace();
             }
         }
     }
@@ -91,26 +89,24 @@ public class LoginIntent extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            // Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             // updateUI(user);
+
+                            Toast.makeText(getApplicationContext(),"SignIn Successfully",Toast.LENGTH_SHORT).show();
+                            Log.d(TAG,"signInSuccess " + user);
+
                             Intent intent = new Intent(LoginIntent.this, MainPage.class);
                             intent.putExtra("name",user.getDisplayName());
                             startActivity(intent);
-                            Toast.makeText(getApplicationContext(),"SignIn Successfully",Toast.LENGTH_SHORT).show();
-                            Log.d(TAG,"signInSuccess " + user);
                         } else {
-                            Intent intent = new Intent(LoginIntent.this, LoginIntent.class);
-                            startActivity(intent);
+
                             Toast.makeText(getApplicationContext(),"SignIn Failed",Toast.LENGTH_SHORT).show();
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            // Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-                            // updateUI(null);
-                        }
 
-                        // ...
+                            Intent intent = new Intent(LoginIntent.this, LoginIntent.class);
+                            startActivity(intent);
+                        }
                     }
                 });
     }
