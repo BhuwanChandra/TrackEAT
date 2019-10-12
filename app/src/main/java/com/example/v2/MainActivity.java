@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -17,16 +18,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //      if ()
 
-        button = findViewById(R.id.imageButton);
+//        button = findViewById(R.id.imageButton);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
+            public void run() {
+
                 Intent intent = new Intent(MainActivity.this, LoginIntent.class);
 
                 startActivity(intent);
+
+                finish();
             }
-        });
+        },2000);
+
+
+
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, LoginIntent.class);
+//
+//                startActivity(intent);
+//            }
+//        });
 
     }
 }

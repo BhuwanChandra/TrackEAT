@@ -133,30 +133,41 @@ public class BarcodeActivity extends AppCompatActivity implements ZXingScannerVi
                 .create()
                 .show();
     }
+//
+//    @Override
+//    public void handleResult(Result rawResult) {
+//
+//        final String scanResult = rawResult.getText();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Scan Result");
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                scannerView.resumeCameraPreview(BarcodeActivity.this);
+//            }
+//        });
+//        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(scanResult));
+//                startActivity(intent);
+//
+//            }
+//        });
+//        builder.setMessage(scanResult);
+//        AlertDialog alert = builder.create();
+//        alert.show();
+//
+//    }
+
 
     @Override
     public void handleResult(Result rawResult) {
 
         final String scanResult = rawResult.getText();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan Result");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                scannerView.resumeCameraPreview(BarcodeActivity.this);
-            }
-        });
-        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(scanResult));
-                startActivity(intent);
+        Intent intent = new Intent(BarcodeActivity.this, ShowInfo.class);
 
-            }
-        });
-        builder.setMessage(scanResult);
-        AlertDialog alert = builder.create();
-        alert.show();
-
+        intent.putExtra("result",scanResult);
+        startActivity(intent);
     }
 }
