@@ -17,10 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginIntent" />
-        <activity android:name=".ShowInfo" />
         <activity android:name=".BarcodeActivity" />
         <activity android:name=".MainPage" />
+        <activity android:name=".ShowInfo" android:parentActivityName=".MainPage"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -40,6 +40,17 @@ public class LoginIntent extends AppCompatActivity {
 
         googleSignInBtn = findViewById(R.id.signInButton);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user != null){
+            Intent intent = new Intent(LoginIntent.this, MainPage.class);
+            //  intent.putExtra("name",user.getDisplayName());
+            startActivity(intent);
+            finish();
+        }
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -47,7 +58,7 @@ public class LoginIntent extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
-        mAuth = FirebaseAuth.getInstance();
+
 
         googleSignInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +107,9 @@ public class LoginIntent extends AppCompatActivity {
                             Log.d(TAG,"signInSuccess " + user);
 
                             Intent intent = new Intent(LoginIntent.this, MainPage.class);
-                            intent.putExtra("name",user.getDisplayName());
+                          //  intent.putExtra("name",user.getDisplayName());
                             startActivity(intent);
+                            finish();
                         } else {
 
                             Toast.makeText(getApplicationContext(),"SignIn Failed",Toast.LENGTH_SHORT).show();
