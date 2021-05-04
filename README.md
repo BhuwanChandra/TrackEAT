@@ -20,7 +20,7 @@ Create an application which scans the bar code (not mandatory)  of a packed item
 - **Efficiency of the user will increase.**
 
 ## App Demo Link
-[TrackEAT Demo](https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md)
+[TrackEAT Demo](https://www.youtube.com/watch?v=QWb5x8GY4cU)
 
 # Screenshots
 
